@@ -1,0 +1,363 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>gti总结 | Hexo</title><meta name="author" content="John Doe"><meta name="copyright" content="John Doe"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="总结1git init  1git add .  1git commit -m &quot;提交说明&quot;  12git remote rm origingit remote add origin git@gitee.com:mroph&#x2F;novel.git  12git pull --rebase origin mastergit push -u origin master  详细步骤初始化">
+<meta property="og:type" content="article">
+<meta property="og:title" content="gti总结">
+<meta property="og:url" content="http://example.com/2024/10/17/gti/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="总结1git init  1git add .  1git commit -m &quot;提交说明&quot;  12git remote rm origingit remote add origin git@gitee.com:mroph&#x2F;novel.git  12git pull --rebase origin mastergit push -u origin master  详细步骤初始化">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png">
+<meta property="article:published_time" content="2024-10-17T08:13:44.308Z">
+<meta property="article:modified_time" content="2024-10-19T02:48:35.462Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/2024/10/17/gti/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        if (name && globalFn[key][name]) return
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'gti总结',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-10-19 10:48:35'
+}</script><meta name="generator" content="Hexo 7.3.0"></head><body><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">Hexo</span></a><a class="nav-page-title" href="/"><span class="site-name">gti总结</span></a></span><div id="menus"></div></nav><div id="post-info"><h1 class="post-title">gti总结</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-10-17T08:13:44.308Z" title="发表于 2024-10-17 16:13:44">2024-10-17</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-10-19T02:48:35.462Z" title="更新于 2024-10-19 10:48:35">2024-10-19</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git init</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git add .</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git commit -m &quot;提交说明&quot;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git remote rm origin</span><br><span class="line">git remote add origin git@gitee.com:mroph/novel.git</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git pull --rebase origin master</span><br><span class="line">git push -u origin master</span><br></pre></td></tr></table></figure>
+
+<h2 id="详细步骤"><a href="#详细步骤" class="headerlink" title="详细步骤"></a>详细步骤</h2><h3 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h3><h4 id="定位工作目录"><a href="#定位工作目录" class="headerlink" title="定位工作目录"></a>定位工作目录</h4><p>打开 Git Bash 终端，使用 <code>cd</code>命令加上要切换的路径，例如：<code>cd /c/Users/username/Documents</code>；按下回车键，即可切换到指定的路径。需要注意的是路径中需要使用正斜杠 &#x2F; 分隔路径，而不是反斜杠 \。</p>
+<p>使用<code>pwd</code>可以显示当前路径</p>
+<h4 id="初始化用户信息"><a href="#初始化用户信息" class="headerlink" title="初始化用户信息"></a>初始化用户信息</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name &#x27;better&#x27;</span><br><span class="line">git config --global user.email &#x27;1063266220@qq.com&#x27;</span><br></pre></td></tr></table></figure>
+
+<h3 id="创建本地仓库"><a href="#创建本地仓库" class="headerlink" title="创建本地仓库"></a>创建本地仓库</h3><p>创建本地仓库的方法有两种：</p>
+<ul>
+<li>一种是创建全新的仓库：<code>git init</code>，会在当前目录初始化创建仓库，也可指定目录：<code>git init [文件目录]</code>执行命令后，如下显示</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git init</span><br><span class="line">Initialized empty Git repository in /Users/michael/learngit/.git/</span><br></pre></td></tr></table></figure>
+
+<p>创建完多出了一个被隐藏的.git 目录，这就是本地仓库 Git 的工作场所，而且是一个空的仓库（empty Git repository）。没事千万不要手动修改这个目录里面的文件，不然改乱了，就把 Git 仓库给破坏了。</p>
+<ul>
+<li>另一种是克隆远程仓库：<code>git clone [url]</code><br>克隆远程仓库，如在 github 上创建的仓库“<code>https://github.com/kwonganding/KWebNote.git</code>”</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">$ git clone &#x27;https://github.com/kwonganding/KWebNote.git&#x27;</span><br><span class="line">Cloning into &#x27;KWebNote&#x27;...</span><br><span class="line">remote: Enumerating objects: 108, done.</span><br><span class="line">remote: Counting objects: 100% (108/108), done.</span><br><span class="line">remote: Compressing objects: 100% (60/60), done.</span><br><span class="line">remote: Total 108 (delta 48), reused 88 (delta 34), pack-reused 0</span><br><span class="line">Receiving objects: 100% (108/108), 9.36 KiB | 736.00 KiB/s, done.</span><br><span class="line">Resolving deltas: 100% (48/48), done.</span><br></pre></td></tr></table></figure>
+
+<p>会在当前目录下创建“KWebNote”项目目录。</p>
+<h3 id="暂存区-add"><a href="#暂存区-add" class="headerlink" title="暂存区 add"></a>暂存区 add</h3><p>把工作区变化放到暂存区中，执行命令<code>git add .</code>可以一次性把所有变化文件放入暂存区</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git add .</span><br></pre></td></tr></table></figure>
+
+<p>执行上面的命令，没有任何显示，说明添加成功。也可以先执行<code>git rm --cached &lt;file&gt;</code>命令将指定的<code>file</code>从当前的暂存区中删除但保留文件在本地工作目录中。</p>
+<table>
+<thead>
+<tr>
+<th><strong>指令</strong></th>
+<th><strong>描述</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>git add [file1] [file2]</td>
+<td>添加文件到暂存区，包括修改的文件、新增的文件</td>
+</tr>
+<tr>
+<td>git add [dir]</td>
+<td>同上，添加目录到暂存区，包括子目录</td>
+</tr>
+<tr>
+<td>git add .</td>
+<td>同上，添加<strong>所有</strong>修改、新增文件（未跟踪）到暂存区</td>
+</tr>
+<tr>
+<td>git rm [file]</td>
+<td>删除工作区文件，并且将这次删除放入暂存区</td>
+</tr>
+<tr>
+<td>git rm –cached [file]</td>
+<td>删除放入暂存区 ，但该文件会保留在工作区</td>
+</tr>
+</tbody></table>
+<h3 id="提交-commit-记录"><a href="#提交-commit-记录" class="headerlink" title="提交 commit-记录"></a>提交 commit-记录</h3><p>把暂存区内容提交到版本库，命令如下（此处文字说明可以不加引号）</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git commit -m &#x27;提交的内容说明&#x27;</span><br></pre></td></tr></table></figure>
+
+<p>执行上面的命令，如下显示</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ git commit -m &quot;wrote a readme file&quot;</span><br><span class="line">[master (root-commit) eaadf4e] wrote a readme file</span><br><span class="line"> 1 file changed, 2 insertions(+)</span><br><span class="line"> create mode 100644 readme.txt</span><br></pre></td></tr></table></figure>
+
+<p><code>git commit</code>命令执行成功后会告诉你，<code>1 file changed</code>：1 个文件被改动（我们新添加的 readme.txt 文件）；<code>2 insertions</code>：插入了两行内容（readme.txt 有两行内容）。<br>以上命令相当于存档了一次，在版本库中产生一次提交记录并生成版本号。本次存档，不耽误我们在工作区 (项目文件夹) 下继续编写项目</p>
+<p>如果改的代码过多，忘记改过哪些了，可以运行<code>git status</code>命令来查看 git 仓库变化，只能看未提交的所有变更的文件状态</p>
+<table>
+<thead>
+<tr>
+<th><strong>指令</strong></th>
+<th><strong>描述</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>git commit -m ‘说明’</td>
+<td>提交变更，参数<code>-m</code>设置提交的描述信息，应该正确提交，不带该参数会进入说明编辑模式</td>
+</tr>
+<tr>
+<td>git commit -a</td>
+<td>参数<code>-a</code>，表示直接从工作区提交到版本库，略过了<code>git add</code>步骤，不包括新增的文件</td>
+</tr>
+<tr>
+<td>git commit [file]</td>
+<td>提交暂存区的指定文件到仓库区</td>
+</tr>
+<tr>
+<td>git commit –amend -m</td>
+<td>使用一次新的<code>commit</code>，替代上一次提交，会修改<code>commit</code>的<code>hash</code>值（id）</td>
+</tr>
+<tr>
+<td>git <strong>reflog</strong></td>
+<td>查看所有可用的历史版本记录（实际是 HEAD 变更记录），包含被回退的记录（<strong>重要</strong>）</td>
+</tr>
+<tr>
+<td>git status</td>
+<td>查看本地仓库状态，比较常用的指令，加参数<code>-s</code>简洁模式</td>
+</tr>
+</tbody></table>
+<h3 id="将本地代码仓库关联到-gitee-上git-remote-add"><a href="#将本地代码仓库关联到-gitee-上git-remote-add" class="headerlink" title="将本地代码仓库关联到 gitee 上git remote add"></a>将本地代码仓库关联到 gitee 上<code>git remote add</code></h3><ul>
+<li>第一次提交直接执行以下命令关联</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git remote add origin 仓库地址</span><br></pre></td></tr></table></figure>
+
+<p>此后，每次本地提交后，只要有必要，就可以使用命令<code>git push origin master</code>推送最新修改；</p>
+<ul>
+<li>第二次提交先删除，再关联</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git remote rm origin</span><br><span class="line">git remote add origin 仓库地址</span><br></pre></td></tr></table></figure>
+
+<p>否则会在使用命令<code>git remote add</code>时报错：<code>fatal: remote origin already exists.</code>，说明本地库已经关联了一个名叫<code>origin</code>的远程库，</p>
+<h3 id="将代码由本地仓库上传到-gitee-远程仓库"><a href="#将代码由本地仓库上传到-gitee-远程仓库" class="headerlink" title="将代码由本地仓库上传到 gitee 远程仓库"></a>将代码由本地仓库上传到 gitee 远程仓库</h3><p>执行以下命令，先拉取后推送</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git pull --rebase origin master</span><br><span class="line">git push -u origin master</span><br></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th><strong>远程仓库指令</strong></th>
+<th><strong>描述</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>git clone [git 地址]</td>
+<td>从远程仓库克隆到本地（当前目录）</td>
+</tr>
+<tr>
+<td>git remote -v</td>
+<td>查看所有远程仓库，不带参数<code>-v</code>只显示名称</td>
+</tr>
+<tr>
+<td>git remote show [remote]</td>
+<td>显示某个远程仓库的信息</td>
+</tr>
+<tr>
+<td><strong>git remote add [name] [url]</strong></td>
+<td>增加一个新的远程仓库，并命名</td>
+</tr>
+<tr>
+<td>git remote rename [old] [new]</td>
+<td>修改远程仓库名称</td>
+</tr>
+<tr>
+<td><strong>git pull [remote] [branch]</strong></td>
+<td>取回远程仓库的变化，并与本地版本合并</td>
+</tr>
+<tr>
+<td><strong>git pull</strong></td>
+<td>同上，针对当前分支</td>
+</tr>
+<tr>
+<td>git fetch [remote]</td>
+<td>获取远程仓库的所有变动到本地仓库，不会自动合并！需要手动合并</td>
+</tr>
+<tr>
+<td><strong>git push</strong></td>
+<td>推送当前分支到远程仓库</td>
+</tr>
+<tr>
+<td>git push [remote] [branch]</td>
+<td>推送本地当前分支到远程仓库的指定分支</td>
+</tr>
+<tr>
+<td>git push [remote] –force&#x2F;-f</td>
+<td>强行推送当前分支到远程仓库，即使有冲突，⚠️ 很危险！</td>
+</tr>
+<tr>
+<td>git push [remote] –all</td>
+<td>推送所有分支到远程仓库</td>
+</tr>
+<tr>
+<td>git push –u</td>
+<td>参数<code>–u</code>表示与远程分支建立关联，第一次执行的时候用，后面就不需要了</td>
+</tr>
+<tr>
+<td>git remote rm [remote-name]</td>
+<td>删除远程仓库</td>
+</tr>
+<tr>
+<td>git pull –rebase</td>
+<td>使用 rebase 的模式进行合并</td>
+</tr>
+</tbody></table>
+<h1 id="错误"><a href="#错误" class="headerlink" title="错误"></a>错误</h1><h2 id="git-init-报错"><a href="#git-init-报错" class="headerlink" title="git init 报错"></a>git init 报错</h2><p>当我们在一个目录下初始化 git 时 可能会出现这个报错，</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">$ git init</span><br><span class="line"><span class="attr">warning</span>: templates not found <span class="keyword">in</span> /home/ja/share/git-core/templates</span><br><span class="line"><span class="attr">hint</span>: <span class="title class_">Using</span> <span class="string">&#x27;master&#x27;</span> <span class="keyword">as</span> the name <span class="keyword">for</span> the initial branch. <span class="title class_">This</span> <span class="keyword">default</span> branch name</span><br><span class="line"><span class="attr">hint</span>: is subject to change. <span class="title class_">To</span> configure the initial branch name to use <span class="keyword">in</span> all</span><br><span class="line"><span class="attr">hint</span>: <span class="keyword">of</span> your <span class="keyword">new</span> repositories, which will suppress <span class="variable language_">this</span> warning, <span class="attr">call</span>:</span><br><span class="line"><span class="attr">hint</span>:</span><br><span class="line"><span class="attr">hint</span>:   git config --<span class="variable language_">global</span> init.<span class="property">defaultBranch</span> &lt;name&gt;</span><br><span class="line"><span class="attr">hint</span>:</span><br><span class="line"><span class="attr">hint</span>: <span class="title class_">Names</span> commonly chosen instead <span class="keyword">of</span> <span class="string">&#x27;master&#x27;</span> are <span class="string">&#x27;main&#x27;</span>, <span class="string">&#x27;trunk&#x27;</span> and</span><br><span class="line"><span class="attr">hint</span>: <span class="string">&#x27;development&#x27;</span>. <span class="title class_">The</span> just-created branch can be renamed via <span class="variable language_">this</span> <span class="attr">command</span>:</span><br><span class="line"><span class="attr">hint</span>:</span><br><span class="line"><span class="attr">hint</span>:   git branch -m &lt;name&gt;</span><br><span class="line"><span class="title class_">Initialized</span> empty <span class="title class_">Git</span> repository <span class="keyword">in</span> /tmp/<span class="keyword">new</span>/.<span class="property">git</span>/</span><br></pre></td></tr></table></figure>
+
+<p><strong>解决：</strong> 执行<code>git config --global init.defaultBranch master</code> 命令，设置默认分支为 master 级别就不会再报错了</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git config --<span class="variable language_">global</span> init.<span class="property">defaultBranch</span> master</span><br></pre></td></tr></table></figure>
+
+<h2 id="git-add-报错"><a href="#git-add-报错" class="headerlink" title="git add .报错"></a>git add .报错</h2><p>git add .报错 <code>warning: adding embedded git repository\:xxxxxxxxxx</code></p>
+<p>执行- $ git add .命令时出现出现这个报错</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">warning: adding embedded git repository:xxxxxxxxxx</span><br><span class="line">hint: You<span class="string">&#x27;ve added another git repository inside your current repository.</span></span><br><span class="line"><span class="string">hint: Clones of the outer repository will not contain the contents of</span></span><br><span class="line"><span class="string">hint: the embedded repository and will not know how to obtain it.</span></span><br><span class="line"><span class="string">hint: If you meant to add a submodule, use:</span></span><br><span class="line"><span class="string">hint:</span></span><br><span class="line"><span class="string">hint: git submodule add &lt;url&gt;xxxxxxxxxx</span></span><br><span class="line"><span class="string">hint:</span></span><br><span class="line"><span class="string">hint: If you added this path by mistake, you can remove it from the</span></span><br><span class="line"><span class="string">hint: index with:</span></span><br><span class="line"><span class="string">hint:</span></span><br><span class="line"><span class="string">hint: git rm --cached   xxxx</span></span><br><span class="line"><span class="string">hint:</span></span><br><span class="line"><span class="string">hint: See &quot;git help submodule&quot; for more information.</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>原因：</strong> 使用 <code>git add .</code> 时，出现上述错误。是因为在当前 <code>git</code> 仓库中同时包含有另一个<code>git</code>仓库。如当前仓库目录下的子文件夹内又是一个仓库。</p>
+<p><strong>解决：</strong> 删除子文件夹的.git 文件， 重新执行<code>git add .</code></p>
+<h2 id="git-remote-add时报错："><a href="#git-remote-add时报错：" class="headerlink" title="git remote add时报错："></a><code>git remote add</code>时报错：</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git remote add origin git@gitee.com:liaoxuefeng/learngit.git</span><br><span class="line">fatal: remote origin already exists.</span><br></pre></td></tr></table></figure>
+
+<p>这说明本地库已经关联了一个名叫<code>origin</code>的远程库，可以用<code>git remote rm &lt;name&gt;</code>命令已有的远程库。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git remote -v</span><br><span class="line">origin	git@github.com:michaelliao/learngit.git (fetch)</span><br><span class="line">origin	git@github.com:michaelliao/learngit.git (push)</span><br></pre></td></tr></table></figure>
+
+<p>可以看到，本地库已经关联了<code>origin</code>的远程库，并且，该远程库指向 GitHub。我们可以删除已有的 GitHub 远程库再关联 Gitee 的远程库</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git remote rm origin</span><br><span class="line">git remote add origin 仓库地址</span><br></pre></td></tr></table></figure>
+
+<h2 id="git-上传报错"><a href="#git-上传报错" class="headerlink" title="git 上传报错"></a>git 上传报错</h2><h3 id="第一个问题"><a href="#第一个问题" class="headerlink" title="第一个问题"></a>第一个问题</h3><p>上传步骤：<br><code>git add .</code><br><code>git commit -m &quot;提示消息&quot;</code><br><code>git push origin master</code></p>
+<p>出错：<br><code>! [rejected] master -&gt; master (fetch first) error: failed to push some refs to &#39; 。。。&#39;</code></p>
+<p>出现这个问题是因为 github 中的 README.md 文件不在本地代码目录中，可以通过如下命令进行代码合并</p>
+<p><code>git pull --rebase origin master</code></p>
+<h3 id="第二个问题"><a href="#第二个问题" class="headerlink" title="第二个问题"></a>第二个问题</h3><p><code>! [remote rejected] master -&gt; master (pre-receive hook declined)</code></p>
+<p>在推送代码时报错如上，网上搜到的方法说是项目的 setting 中 master 是受保护的项目，所以开发者无法推送，解决方法是修改 protected 的设置，或者新建一个分支，推送到自己的分支上</p>
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/cppeterpan/p/7289266.html">解决办法的文章</a></p>
+<h2 id="git-push-报错"><a href="#git-push-报错" class="headerlink" title="git push 报错"></a>git push 报错</h2><p>gitee 第一次提交代码提交不上去，到 push 这一步老是遇到</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">  ! \[remote rejected\] master -&gt; <span class="title function_">master</span> (hook declined)</span><br><span class="line"><span class="attr">error</span>: failed to push some refs to</span><br></pre></td></tr></table></figure>
+
+<p>这种情况，老是提不上去。那是因为。你的邮箱设置，<strong>不公开我的邮箱</strong>把这个勾上了，取消勾选就行了。这样导致找不到你的远程地址。所以推不上去</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="http://example.com">John Doe</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="http://example.com/2024/10/17/gti/">http://example.com/2024/10/17/gti/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="http://example.com" target="_blank">Hexo</a>！</span></div></div><div class="tag_share"><div class="post-share"><div class="social-share" data-image="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="prev-post pull-left" href="/2024/10/19/hexo2/" title=""><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info"></div></div></a><a class="next-post pull-right" href="/2024/10/17/hello-world/" title="Hello World"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">Hello World</div></div></a></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info is-center"><div class="avatar-img"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">John Doe</div><div class="author-info-description"></div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">3</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-number">1.</span> <span class="toc-text">总结</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AF%A6%E7%BB%86%E6%AD%A5%E9%AA%A4"><span class="toc-number">2.</span> <span class="toc-text">详细步骤</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%9D%E5%A7%8B%E5%8C%96"><span class="toc-number">2.1.</span> <span class="toc-text">初始化</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%9A%E4%BD%8D%E5%B7%A5%E4%BD%9C%E7%9B%AE%E5%BD%95"><span class="toc-number">2.1.1.</span> <span class="toc-text">定位工作目录</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%9D%E5%A7%8B%E5%8C%96%E7%94%A8%E6%88%B7%E4%BF%A1%E6%81%AF"><span class="toc-number">2.1.2.</span> <span class="toc-text">初始化用户信息</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E6%9C%AC%E5%9C%B0%E4%BB%93%E5%BA%93"><span class="toc-number">2.2.</span> <span class="toc-text">创建本地仓库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9A%82%E5%AD%98%E5%8C%BA-add"><span class="toc-number">2.3.</span> <span class="toc-text">暂存区 add</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8F%90%E4%BA%A4-commit-%E8%AE%B0%E5%BD%95"><span class="toc-number">2.4.</span> <span class="toc-text">提交 commit-记录</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B0%86%E6%9C%AC%E5%9C%B0%E4%BB%A3%E7%A0%81%E4%BB%93%E5%BA%93%E5%85%B3%E8%81%94%E5%88%B0-gitee-%E4%B8%8Agit-remote-add"><span class="toc-number">2.5.</span> <span class="toc-text">将本地代码仓库关联到 gitee 上git remote add</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B0%86%E4%BB%A3%E7%A0%81%E7%94%B1%E6%9C%AC%E5%9C%B0%E4%BB%93%E5%BA%93%E4%B8%8A%E4%BC%A0%E5%88%B0-gitee-%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93"><span class="toc-number">2.6.</span> <span class="toc-text">将代码由本地仓库上传到 gitee 远程仓库</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%94%99%E8%AF%AF"><span class="toc-number"></span> <span class="toc-text">错误</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#git-init-%E6%8A%A5%E9%94%99"><span class="toc-number">1.</span> <span class="toc-text">git init 报错</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#git-add-%E6%8A%A5%E9%94%99"><span class="toc-number">2.</span> <span class="toc-text">git add .报错</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#git-remote-add%E6%97%B6%E6%8A%A5%E9%94%99%EF%BC%9A"><span class="toc-number">3.</span> <span class="toc-text">git remote add时报错：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#git-%E4%B8%8A%E4%BC%A0%E6%8A%A5%E9%94%99"><span class="toc-number">4.</span> <span class="toc-text">git 上传报错</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E4%B8%AA%E9%97%AE%E9%A2%98"><span class="toc-number">4.1.</span> <span class="toc-text">第一个问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E4%B8%AA%E9%97%AE%E9%A2%98"><span class="toc-number">4.2.</span> <span class="toc-text">第二个问题</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#git-push-%E6%8A%A5%E9%94%99"><span class="toc-number">5.</span> <span class="toc-text">git push 报错</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/10/19/hexo2/" title="无标题">无标题</a><time datetime="2024-10-19T01:34:53.775Z" title="发表于 2024-10-19 09:34:53">2024-10-19</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/10/17/gti/" title="gti总结">gti总结</a><time datetime="2024-10-17T08:13:44.308Z" title="发表于 2024-10-17 16:13:44">2024-10-17</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/10/17/hello-world/" title="Hello World">Hello World</a><time datetime="2024-10-17T07:43:52.699Z" title="发表于 2024-10-17 15:43:52">2024-10-17</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2019 - 2024 By John Doe</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
